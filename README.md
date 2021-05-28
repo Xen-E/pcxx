@@ -32,6 +32,12 @@ It can also create as many types and even more!
 
 To make sure you're downloading the latest binaries check the [releases](https://github.com/Xen-E/pcxx/releases) page.
 
+#### Windows
+For x86-64 architecture (64bit): [PCxx_x86_64_setup.exe](https://github.com/Xen-E/pcxx/releases/download/1.0/PCxx_x86_64_setup.exe)
+For i686 architecture (32bit): [PCxx_i686_setup.exe](https://github.com/Xen-E/pcxx/releases/download/1.0/PCxx_i686_setup.exe)
+
+#### Linux
+_Working on it._
 
 
 ## Building

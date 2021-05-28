@@ -1,0 +1,7 @@
+playlists/
+build/
+bin/
+installer/
+PCxx_QT.pro.user
+.vscode/
+todo.txt

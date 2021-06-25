@@ -64,6 +64,7 @@ PCxx::PCxx(QWidget *parent) : QMainWindow(parent /*, Qt::FramelessWindowHint*/),
     ui->txtDirFilter->setText(settings.value("Misc/DirectoryFilter", "").toString());
     ui->chkDirFilterCaseSensitive->setChecked(settings.value("Misc/DirectoryFilterCaseSensitive", false).toBool());
 
+    ui->chkColorMissingFiles->setChecked(settings.value("FilesList/ColorMissingFiles", false).toBool());
     ui->chkShowFilesListHeader->setChecked(settings.value("FilesList/ShowHeader", true).toBool());
     ui->chkResizeColumnsToFitContent->setChecked(settings.value("FilesList/ResizeColumnsToFitContent", true).toBool());
     ui->chkShowFilesListGrid->setChecked(settings.value("FilesList/ShowGrid", false).toBool());
@@ -340,8 +341,16 @@ void PCxx::onFilesListItemChanged(QTableWidgetItem *item)
 {
     switch (item->column()) {
     case 0: //File path
-        if (!item->text().isEmpty())
+        if (!item->text().isEmpty()) {
             Playlist[item->row()].fullPath = item->text();
+            if (ui->chkColorMissingFiles->isChecked()) {
+                if (!QFile::exists(item->text())) {
+                    QMessageBox::warning(this, tr("Missing File"),
+                    tr("This file path that you entered doesn't exist!%1%1You can turn off this warning from settings in \"Files List\" section.").arg(NEWLINE));
+                    item->setForeground(QColor("red"));
+                }
+            }
+        }
         else {
             QMessageBox::warning(this, tr("File path is empty"), tr("File path can't be empty please provide at least one letter/character."));
             item->setText(Playlist[item->row()].fullPath);
@@ -491,6 +500,13 @@ void PCxx::UpdateFilesList()
             ui->filesList->setItem(index, 3, albumItem);
             ui->filesList->setItem(index, 4, lengthItem);
             ui->filesList->setItem(index, 5, fileSizeItem);
+
+            if (ui->chkColorMissingFiles->isChecked()) {
+                if (!QFile::exists(track.fullPath)) {
+                    fullPathItem->setText(tr("MISSING: %1").arg(track.fullPath));
+                    fullPathItem->setForeground(QColor("red"));
+                }
+            }
         }
 
         if (ui->chkResizeColumnsToFitContent->isChecked()) {
@@ -719,6 +735,7 @@ void PCxx::closeEvent(QCloseEvent *event)
     settings.setValue("Notification/ConfirmQuitExporting", ui->chkConfirmQuitExporting->isChecked());
     settings.setValue("Notification/ConfirmQuitID3Fixer", ui->chkConfirmQuitID3Fixing->isChecked());
 
+    settings.setValue("FilesList/ColorMissingFiles", ui->chkColorMissingFiles->isChecked());
     settings.setValue("FilesList/ShowHeader", ui->chkShowFilesListHeader->isChecked());
     settings.setValue("FilesList/ResizeColumnsToFitContent", ui->chkResizeColumnsToFitContent->isChecked());
     settings.setValue("FilesList/ShowGrid", ui->chkShowFilesListGrid->isChecked());

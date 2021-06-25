@@ -518,8 +518,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>28</height>
+             <width>100</width>
+             <height>30</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1159,8 +1159,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>28</height>
+             <width>100</width>
+             <height>30</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1340,8 +1340,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>28</height>
+             <width>100</width>
+             <height>30</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1434,8 +1434,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>28</height>
+             <width>792</width>
+             <height>336</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1445,7 +1445,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>130</y>
+              <y>140</y>
               <width>441</width>
               <height>19</height>
              </rect>
@@ -1458,7 +1458,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>160</y>
+              <y>170</y>
               <width>531</width>
               <height>19</height>
              </rect>
@@ -1471,7 +1471,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>190</y>
+              <y>200</y>
               <width>421</width>
               <height>19</height>
              </rect>
@@ -1484,7 +1484,7 @@
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>220</y>
+              <y>230</y>
               <width>411</width>
               <height>19</height>
              </rect>
@@ -1545,14 +1545,27 @@
              <string>Case-Sensitive</string>
             </property>
            </widget>
+           <widget class="QCheckBox" name="chkColorMissingFiles">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>371</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Check for missing files and color them</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="eyeCandyToolBoxPage">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>28</height>
+             <width>100</width>
+             <height>30</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1990,8 +2003,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>98</width>
-               <height>28</height>
+               <width>100</width>
+               <height>30</height>
               </rect>
              </property>
              <attribute name="label">
@@ -2583,7 +2596,7 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
+             <width>88</width>
              <height>88</height>
             </rect>
            </property>

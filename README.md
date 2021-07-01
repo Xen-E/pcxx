@@ -24,13 +24,14 @@ It can also create as many types and even more!
 - Highly customizable
 - Unicode support
 - ID3 Fixer, You can use it to fix and replenish playlists
+- Can fix paths
 - Detailed Logs
 - Pretty modern interface available in two modes: Dark/Light
 - more!
 
 ## Downloads
 
-To make sure you're downloading the latest binaries check the [releases](https://github.com/Xen-E/pcxx/releases) page.
+To make sure you're downloading the latest binaries please check the [releases](https://github.com/Xen-E/pcxx/releases) page.
 
 ### Windows
 For x86-64 architecture (64bit): [PCxx_x86_64_setup.exe](https://github.com/Xen-E/pcxx/releases/download/1.0/PCxx_x86_64_setup.exe)
@@ -38,7 +39,7 @@ For x86-64 architecture (64bit): [PCxx_x86_64_setup.exe](https://github.com/Xen-
 For i686 architecture (32bit): [PCxx_i686_setup.exe](https://github.com/Xen-E/pcxx/releases/download/1.0/PCxx_i686_setup.exe)
 
 ### Linux
-_Working on it._
+For Linux in general download [PCxx_Linux_v1.0.zip](https://github.com/Xen-E/pcxx/releases/download/1.0/PCxx_Linux_v1.0.zip), extract it then find a file called "Run Me" and double click it OR right click and hit "Run" thats's it! You don't need to make it executable just run it. Please notice that this binary was built using Ubuntu 20.04.2.0 LTS (Focal Fossa) which is based on Debian. So if you face any problems try to build the project yourself (Check below).
 
 
 ## Building

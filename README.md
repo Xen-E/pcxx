@@ -1,5 +1,8 @@
 # Playlist Converter++
 ### _Read, Manage, Convert & Create Playlists_
+
+![ScreenShot](https://raw.github.com/xen-e/pcxx/main/screenshots/PCxx_1.0.png)
+
 PC++ is a powerful playlist manager, You can use it to create or convert media playlists.
 It can read the following playlist types:
 - M3U/M3U8 (Mp3 URL)
@@ -25,9 +28,10 @@ It can also create as many types and even more!
 - Unicode support
 - ID3 Fixer, You can use it to fix and replenish playlists
 - Can fix paths
+- Drag & Drop support (Files and Directories)
 - Detailed Logs
 - Pretty modern interface available in two modes: Dark/Light
-- more!
+- much more!
 
 ## Downloads
 
@@ -41,6 +45,8 @@ For i686 architecture (32bit): [PCxx_i686_setup.exe](https://github.com/Xen-E/pc
 ### Linux
 For Linux in general download [PCxx_Linux_v1.0.zip](https://github.com/Xen-E/pcxx/releases/download/1.0/PCxx_Linux_v1.0.zip), extract it then find a file called "Run Me" and double click it OR right click and hit "Run" thats's it! You don't need to make it executable just run it. Please notice that this binary was built using Ubuntu 20.04.2.0 LTS (Focal Fossa) which is based on Debian. So if you face any problems try to build the project yourself (Check below).
 
+### macOS/Other
+Right now i don't have a mac to test and make binaries, But the project should work fine if you have Qt/TagLib installed in your system. You can build it easily... Check the building section below.
 
 ## Building
 

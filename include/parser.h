@@ -53,6 +53,7 @@ private:
     bool parseAIMPPL(QTextStream &stream);
     bool parseTXT(QTextStream &stream);
     bool parseXSPF(QFile &fileStream);
+    bool parseITUNES(QFile &fileStream);
     bool parseJSPF(QTextStream &stream);
     bool parseWPL(QFile &fileStream);
     bool parseASX(QFile &fileStream);

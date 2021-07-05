@@ -93,6 +93,10 @@ void Parser::Parse()
                 emit log(info, tr("Parsing \"%1\"... (Text Document)").arg(FileName));
                 failed = !parseTXT(stream);
                 break;
+            case Format::ITUNES:
+                emit log(info, tr("Parsing \"%1\"... (Apple ITunes Media Player)").arg(FileName));
+                failed = !parseITUNES(fs);
+                break;
 
             case Format::FPL:
                 break;

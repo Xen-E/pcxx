@@ -66,6 +66,7 @@ SOURCES += \
     src/parsers/ASX.cpp \
     src/parsers/B4S.cpp \
     src/parsers/FPL.cpp \
+    src/parsers/ITUNES.cpp \
     src/parsers/JSPF.cpp \
     src/parsers/M3U.cpp \
     src/parsers/MPCPL.cpp \

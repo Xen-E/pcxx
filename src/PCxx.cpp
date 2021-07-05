@@ -403,12 +403,13 @@ void PCxx::on_btnFixID3_clicked()
 void PCxx::on_btnAddPlaylist_clicked()
 {
     const QString filter("All supported playlists (*.aimppl *.aimppl2 *.aimppl3 *.aimppl4 *.aimppl5 "
-    "*.asx *.b4s *.fpl *.m3u *.m3u8 *.mpcpl *.pls *.wpl *.xspf *.json *.jspf *.txt);;"
+    "*.asx *.b4s *.fpl *.m3u *.m3u8 *.mpcpl *.pls *.wpl *.xspf *.json *.jspf *.txt *.xml);;"
     "MP3 URL Playlists (*.m3u *.m3u8);;"
     "museArc/SHOUTcast Playlists (*.pls);;"
     "XML Shareable Playlist Format (*.xspf);;"
     "JSON Shareable Playlist Format (*.json *.jspf);;"
     "foobar2000 Playlists (*.fpl);;"
+    "Apple ITunes XML Playlists (*.xml);;"
     "Microsoft Windows Media Player Playlists (*.wpl);;"
     "Advanced Stream Redirector Playlists (*.asx);;"
     "Media Player Classic Playlists (*.mpcpl);;"
@@ -445,6 +446,8 @@ void PCxx::on_btnAddPlaylist_clicked()
         parser->Type = Format::WPL;
     else if (plfn.endsWith(".xspf"))
         parser->Type = Format::XSPF;
+    else if (plfn.endsWith(".xml"))
+        parser->Type = Format::ITUNES;
     else if (plfn.endsWith(".json") || plfn.endsWith(".jspf"))
         parser->Type = Format::JSPF;
     else if (plfn.endsWith(".txt"))

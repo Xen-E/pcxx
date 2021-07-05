@@ -34,7 +34,7 @@ namespace Product {
     const QString name       = "Playlist Converter++";
     const QString shortName  = "PC++";
     const unsigned int major = 1;
-    const unsigned int minor = 0;
+    const unsigned int minor = 1;
     const QString version    = QString("%1.%2").arg(QString::number(major), QString::number(minor));
 }
 

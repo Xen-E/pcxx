@@ -40,7 +40,8 @@ enum Format {
     B4S    = 0x1009, //old Winamp ~2.0
     FPL    = 0x1010, //foobar2000
     HTML   = 0x1011, //HTML Document
-    TXT    = 0x1012  //Text Document
+    TXT    = 0x1012, //Text Document
+    ITUNES = 0x1013  //Apple ITunes Media Player
 };
 
 enum levelType {

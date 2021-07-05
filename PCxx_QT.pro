@@ -59,6 +59,7 @@ SOURCES += \
     src/formatters/MPCPL.cpp \
     src/formatters/PLS.cpp \
     src/formatters/TXT.cpp \
+    src/formatters/VDJ.cpp \
     src/formatters/WPL.cpp \
     src/formatters/XSPF.cpp \
     src/main.cpp \

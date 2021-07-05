@@ -82,6 +82,10 @@ void Exporter::Export()
             emit log(info, tr("Using \"Media Player Classic\" format..."));
             failed = !formatMPCPL(stream);
             break;
+        case Format::VDJ:
+            emit log(info, tr("Using \"VirtualDJ playlists\" format..."));
+            failed = !formatVDJ(stream);
+            break;
         case Format::B4S:
             emit log(info, tr("Using \"B4S (old Winamp)\" format..."));
             failed = !formatB4S(stream);

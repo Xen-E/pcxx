@@ -59,6 +59,7 @@ private:
     bool formatJSPF(QTextStream &stream);
     bool formatWPL(QTextStream &stream);
     bool formatASX(QTextStream &stream);
+    bool formatVDJ(QTextStream &stream);
     bool formatB4S(QTextStream &stream);
     bool formatHTML(QTextStream &stream);
     bool formatTXT(QTextStream &stream);

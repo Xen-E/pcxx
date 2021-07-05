@@ -889,15 +889,19 @@ void PCxx::on_btnExport_clicked()
         exporter->format   = Format::MPCPL;
         exporter->SavePath = ui->exportSavePath->text() + ".mpcpl";
         break;
-    case 7: //B4S
+    case 7: //VirtualDJ
+        exporter->format   = Format::VDJ;
+        exporter->SavePath = ui->exportSavePath->text() + ".m3u";
+        break;
+    case 8: //B4S
         exporter->format   = Format::B4S;
         exporter->SavePath = ui->exportSavePath->text() + ".b4s";
         break;
-    case 8: //HTML
+    case 9: //HTML
         exporter->format   = Format::HTML;
         exporter->SavePath = ui->exportSavePath->text() + ".html";
         break;
-    case 9: //TXT
+    case 10: //TXT
         exporter->format   = Format::TXT;
         exporter->SavePath = ui->exportSavePath->text() + ".txt";
         break;

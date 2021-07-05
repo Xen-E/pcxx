@@ -41,7 +41,8 @@ enum Format {
     FPL    = 0x1010, //foobar2000
     HTML   = 0x1011, //HTML Document
     TXT    = 0x1012, //Text Document
-    ITUNES = 0x1013  //Apple ITunes Media Player
+    ITUNES = 0x1013, //Apple ITunes Media Player
+    VDJ    = 0x1014  //VirtualDJ, Audio & Video mixing software
 };
 
 enum levelType {

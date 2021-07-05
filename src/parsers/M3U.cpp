@@ -20,23 +20,61 @@ bool Parser::parseM3U(QTextStream &stream)
 {
     QStringList artists, titles, filePaths;
     QVector<unsigned long> lengths;
+    QVector<uint64_t> fileSizes;
 
-    const QString sig("#EXTINF:");
+    const QString STANDARD_SIG("#EXTINF:");
+    const QString VIRTUALDJ_SIG("#EXTVDJ:");
 
     while (!stream.atEnd()) {
         const QString line(stream.readLine().trimmed());
 
-        if (line.startsWith(sig)) {
+        if (line.startsWith(STANDARD_SIG)) {
             QString trackInfo(line.mid(line.indexOf(",")+1));
             QStringList data(trackInfo.split("-"));
             QString artist(data[0]);
             QString title(data[1]);
 
-            const unsigned long length(line.split(",")[0].midRef(sig.length()).toULong());
+            const unsigned long length(line.split(",")[0].midRef(STANDARD_SIG.length()).toULong());
 
             artists.push_back(trimSpaces(artist));
             titles.push_back(trimSpaces(title));
             lengths.push_back(length);
+        }
+        /*
+         * This is for VirtualDJ M3U playlists format
+         * it uses XML tags in the track information line
+         * which is contain its signature (#EXTVDJ)
+         * it also stores file size and that don't exist in
+         * normal standard M3U/M3U8 playlists format.
+        */
+        else if (line.startsWith(VIRTUALDJ_SIG)) {
+            if (line.contains("<filesize>")) {
+                const int fs_POS(line.indexOf("<filesize>")+10);
+                const int fs_LENGTH(line.indexOf("</filesize>")-fs_POS);
+                fileSizes.push_back(line.midRef(fs_POS, fs_LENGTH).toULongLong());
+            }
+            else fileSizes.push_back(0);
+
+            if (line.contains("<artist>")) {
+                const int a_POS(line.indexOf("<artist>")+8);
+                const int a_LENGTH(line.indexOf("</artist>")-a_POS);
+                artists.push_back(line.mid(a_POS, a_LENGTH));
+            }
+            else artists.push_back("");
+
+            if (line.contains("<title>")) {
+                const int t_POS(line.indexOf("<title>")+7);
+                const int t_LENGTH(line.indexOf("</title>")-t_POS);
+                titles.push_back(line.mid(t_POS, t_LENGTH));
+            }
+            else titles.push_back("");
+
+            if (line.contains("<songlength>")) {
+                const int sl_POS(line.indexOf("<songlength>")+12);
+                const int sl_LENGTH(line.indexOf("</songlength>")-sl_POS);
+                lengths.push_back(line.midRef(sl_POS, sl_LENGTH).toDouble()); //toDouble is important since VDJ uses float value.
+            }
+            else lengths.push_back(0);
         }
 
         if (!line.startsWith("#") && line.length() > 3) {
@@ -70,8 +108,8 @@ bool Parser::parseM3U(QTextStream &stream)
             file.title    = f < titles.size() ? titles.at(f) : "";
             file.album    = "";
 
-            file.fileSize    = humanizeBytes(0);
-            file.rawFileSize = 0;
+            file.fileSize    = f < fileSizes.size() ? humanizeBytes(fileSizes.at(f)) : humanizeBytes(0);
+            file.rawFileSize = f < fileSizes.size() ? fileSizes.at(f) : 0;
             file.length      = f < lengths.size() ? formatLength(lengths.at(f)) : formatLength(0);
             file.rawLength   = f < lengths.size() ? lengths.at(f) : 0;
 

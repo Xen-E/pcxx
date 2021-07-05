@@ -15,7 +15,6 @@
 
 
 #include <parser.h>
-#include <QDebug>
 
 bool Parser::parseITUNES(QFile &fileStream)
 {

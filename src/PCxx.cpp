@@ -410,6 +410,7 @@ void PCxx::on_btnAddPlaylist_clicked()
     "JSON Shareable Playlist Format (*.json *.jspf);;"
     "foobar2000 Playlists (*.fpl);;"
     "Apple ITunes XML Playlists (*.xml);;"
+    "VirtualDJ M3U Playlists (*.xml);;"
     "Microsoft Windows Media Player Playlists (*.wpl);;"
     "Advanced Stream Redirector Playlists (*.asx);;"
     "Media Player Classic Playlists (*.mpcpl);;"

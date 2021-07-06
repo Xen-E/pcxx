@@ -154,6 +154,12 @@ PCxx::PCxx(QWidget *parent) : QMainWindow(parent /*, Qt::FramelessWindowHint*/),
     ui->filesList->addAction(delAction);
     ui->filesList->addAction(showInFolderAction);
 
+    QAction *sep2 = new QAction(this); sep2->setSeparator(true);
+    QAction *tip = new QAction(tr("Tip: Double click a field to edit."), this);
+    tip->setDisabled(true);
+    ui->filesList->addAction(sep2);
+    ui->filesList->addAction(tip);
+
 
     //Since alternaterowcolors option is acting weird, this will fix it
     ui->filesList->setAlternatingRowColors(settings.value("FilesList/AlternateColors", true).toBool());

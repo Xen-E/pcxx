@@ -319,7 +319,8 @@ void PCxx::showFilesListItemInFolder()
 
     if (!items.isEmpty()) {
         if (items.size() <= 6) {
-            showInFolder(items[0]->text());
+            if (QFile::exists(items[0]->text())) { showInFolder(items[0]->text()); }
+            else { QMessageBox::warning(this, tr("Not found"), tr("Can't show file in folder because it doesn't exist.")); }
         }
         else {
             QMessageBox::warning(this, tr("Multiple items selected"),

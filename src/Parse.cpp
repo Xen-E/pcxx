@@ -69,6 +69,10 @@ void Parser::Parse()
                 emit log(info, tr("Parsing \"%1\"... (M3U/M3U8, MP3 URL)").arg(FileName));
                 failed = !parseM3U(stream);
                 break;
+            case Format::VDJ:
+                emit log(info, tr("Parsing \"%1\"... (Virtual DJ MP3 URL)").arg(FileName));
+                failed = !parseM3U(stream);
+                break;
             case Format::MPCPL:
                 emit log(info, tr("Parsing \"%1\"... (Media Player Classic)").arg(FileName));
                 failed = !parseMPCPL(stream);

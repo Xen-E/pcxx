@@ -15,6 +15,7 @@
 
 
 #include <parser.h>
+#include <qdebug.h>
 
 bool Parser::parseM3U(QTextStream &stream)
 {
@@ -29,10 +30,23 @@ bool Parser::parseM3U(QTextStream &stream)
         const QString line(stream.readLine().trimmed());
 
         if (line.startsWith(STANDARD_SIG)) {
+            qDebug() << line;
             QString trackInfo(line.mid(line.indexOf(",")+1));
             QStringList data(trackInfo.split("-"));
-            QString artist(data[0]);
-            QString title(data[1]);
+
+            QString artist, title;
+            if (data.size() > 1) {
+                artist = data[0];
+                title  = data[1];
+            }
+            else if (data.size() == 1) {
+                artist = data[0];
+                title  = "Untitled";
+            }
+            else {
+                artist = "Unknown";
+                title  = "Untitled";
+            }
 
             const unsigned long length(line.split(",")[0].midRef(STANDARD_SIG.length()).toULong());
 
